@@ -1,5 +1,86 @@
 $main-color: skyblue;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
 
-body {
-  background-color: $main-color;
+.navbar-dropdown {
+    color: gray;
+    .navbar-item:hover {
+        color: white;
+    }
+}
+
+// .is-centered {
+//     display: flex;
+//     justify-content: flex-end;
+// }
+
+/* section2 영역 */
+
+.main {
+    // background: red;
+    padding-top: 20px;
+    width: 100%;
+    margin: auto;
+    .cards {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        &-box {
+            width: 300px;
+            height: 340px;
+            background-color: white;
+            margin: 0 15px 35px 20px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 7px 9px rgba(0, 0, 0, .1);
+        }
+    }
+}
+
+.card-more {}
+
+.card-box {}
+
+.card-box img {
+    width: 345px;
+    height: 245px;
+}
+
+.card-box-text {
+    margin-left: 15px;
+}
+
+.card-box-text h3 {
+    margin-top: 13px;
+    font-size: 16px;
+    color: #575757;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-box-text h3:hover {
+    color: #f88c00;
+}
+
+.card-box-text h3::after {
+    content: "";
+    display: block;
+    width: 100px;
+    border-bottom: 2px solid #c5c5c5;
+    margin: 8px 0px;
+}
+
+.card-box-text p {
+    color: #181818;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 여러 줄 자르기 추가 스타일 */
+    white-space: normal;
+    text-align: left;
 }

@@ -1,14 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>중간 프로젝트 템플릿</title>
-  <link rel="stylesheet" href="./index.scss">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Mall</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./index.scss">
 </head>
+
 <body>
-  <h1>중간 프로젝트 템플릿</h1>
-  <script src="./index.js"></script>
+    <div class="root"></div>
+    <template id="header">
+      <section class="hero is-primary is-small">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a class="navbar-item">
+                  <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </div>
+              <div id="navbarMenuHeroA" class="navbar-menu">
+                <div class="navbar-end">
+                  <!-- is-active -->
+                  <a class="navbar-item ">
+                    sign in
+                  </a>
+                  <a class="navbar-item">
+                    sign up
+                  </a>
+                  <a class="navbar-item">
+                    My Page
+                  </a>
+                  <a class="navbar-item">
+                      basket
+                    </a>
+                    <a class="navbar-item">
+                        Orders
+                      </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">
+              Title
+            </h1>
+            <h2 class="subtitle">
+              Subtitle
+            </h2>
+          </div>
+        </div>
+      
+        <!-- Hero footer: will stick at the bottom -->
+        <div class="hero-foot">
+          <nav class="navbar is-boxed">
+            <div class="container ">
+              <ul class="navbar">
+                <li class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-item">
+                    운동화
+                  </a>
+                  <div class="navbar-dropdown">
+                      <a class="navbar-item">
+                        컨버스화
+                      </a>
+                      <a class="navbar-item" >
+                        슬립온
+                      </a>
+                      <a class="navbar-item" >
+                        스니커즈
+                      </a>
+                  </div>
+                </li>
+                <li class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-item">
+                    스포츠
+                  </a>
+                  <div class="navbar-dropdown">
+                      <a class="navbar-item">
+                        런닝화
+                      </a>
+                      <a class="navbar-item" >
+                        등산화
+                      </a>
+                      <a class="navbar-item" >
+                        아쿠아슈즈
+                      </a>
+                  </div>
+                </li>
+                <li class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-item">
+                    구두
+                  </a>
+                  <div class="navbar-dropdown">
+                      <a class="navbar-item">
+                        옥스퍼드
+                      </a>
+                      <a class="navbar-item" >
+                        로퍼
+                      </a>
+                      <a class="navbar-item" >
+                        플랫
+                      </a>
+                  </div>
+                </li>
+                <li class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-item">
+                    부츠
+                  </a>
+                  <div class="navbar-dropdown">
+                      <a class="navbar-item">
+                        워크부츠
+                      </a>
+                      <a class="navbar-item" >
+                        레인부츠
+                      </a>
+                      <a class="navbar-item" >
+                        앵클, 부티
+                      </a>
+                  </div>
+                </li>
+                <li class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-item">
+                    Components
+                  </a>
+                </li>
+                <li class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-item">
+                    Layout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </section>
+      
+      <div class="main">
+          <div class="cards">
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Basic Polo shirt - White</h3>
+                <p>₩43,000</p>
+              </div>
+            </a>
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Basic Logo T-shirt - White</h3>
+                <p>₩68,000</p>
+              </div>
+            </a>
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Basic Long sleeve T-shirt</h3>
+                <p>₩55,000</p>
+              </div>
+            </a>
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Basic Short pants - Navy</h3>
+                <p>₩38,000</p>
+              </div>
+            </a>
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Pile 6P Cap - Yellow</h3>
+                <p>₩38,000</p>
+              </div>
+            </a>
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Women's Short Pants - Yellow</h3>
+                <p>₩48,000</p>
+              </div>
+            </a>
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Women's Short Pants - Yellow</h3>
+                <p>₩32,000</p>
+              </div>
+            </a>
+            <a href="#" class="cards-box">
+              <img src="https://source.unsplash.com/random/500x500" alt="">
+              <div class="card-box-text">
+                <h3>Women's Short Pants - Yellow</h3>
+                <p>₩18,000</p>
+              </div>
+            </a>
+          </div>
+        </div>
+     
+    </template>
+    <script src="./index.js"></script>
 </body>
+
 </html>

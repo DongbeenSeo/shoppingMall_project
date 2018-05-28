@@ -1,0 +1,55 @@
+{
+    "users": [{
+            "id": 1,
+            "username": "admin"
+        },
+        {
+            "id": 2,
+            "username": "fds",
+            "address": "....",
+            "phonenumber": "000-1111-1111",
+            "email": "asdf@gmail.com",
+            "choiceproducts": [],
+            "orderproducts": [],
+            "emoney": 100000
+        }
+    ],
+    "products": [{
+        "id": 1,
+        "productname": "air max",
+        "price": 20000,
+        "quantity": 5,
+        "brandid": 1,
+        "categoryid": 1,
+        "sailedCount": 0,
+        "description": [{
+            "images": [],
+            "Explanation": "This is ...."
+        }]
+    }],
+    "comments": [{
+        "id": 1,
+        "userId": 1,
+        "productId": 1,
+        "createdate": "2018-01-01",
+        "body": "Good"
+    }],
+    "brand": [{
+            "id": 1,
+            "brandname": "nike"
+        },
+        {
+            "id": 2,
+            "brandname": "adidas"
+        }
+    ],
+    "categories": [{
+            "id": 1,
+            "categoryname": "running shoes"
+        },
+        {
+            "id": 2,
+            "categoryname": "shoes"
+        }
+    ]
+}
