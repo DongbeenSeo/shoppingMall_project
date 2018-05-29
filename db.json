@@ -6,14 +6,19 @@
         {
             "id": 2,
             "username": "fds",
-            "address": "....",
-            "phonenumber": "000-1111-1111",
-            "email": "asdf@gmail.com",
-            "choiceproducts": [],
-            "orderproducts": [],
-            "emoney": 100000
+            "hashedPassword": "$2a$10$LxKc8DNfZOgl3sViqY5JmeTvGJ6aY/OPdgTjt6gu0tUPBjdToJy1.",
+            "userinfoid": 2
         }
     ],
+    "userinfo": [{
+        "id": 2,
+        "address": "....",
+        "phonenumber": "000-1111-1111",
+        "email": "asdf@gmail.com",
+        "choiceproducts": [],
+        "orderproducts": [],
+        "emoney": 100000
+    }],
     "products": [{
         "id": 1,
         "productname": "air max",
