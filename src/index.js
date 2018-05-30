@@ -10,12 +10,14 @@ const toggleEl = document.querySelector('.state-toggle');
 const loginEl = document.querySelector('.state-toggle-logIn');
 const logoutEl = document.querySelector('.state-toggle-logOut');
 //home 화면 전환을 위한 변수
-const gotoHome = document.querySelector('.home');
+const gotoHomebtn = document.querySelector('.home-btn');
 const titleEl = document.querySelector('.title');
 const logoEl = document.querySelector('.logo');
 const addUsername = document.querySelector('.username');
 //회원 가입 페이지 전환을 위한 변수
-const signupEl = document.querySelector('.signUp');
+const signupEl = document.querySelector('.signup-btn');
+//my page화면 전환 변수
+const mypageBtn = document.querySelector('.mypage-btn');
 
 const templates = {
     products: document.querySelector('#products').content,
@@ -46,20 +48,36 @@ async function indexPage() {
     const productsFragment = document.importNode(templates.products, true);
 
     let userid = 0;
+    let userinfo = {};
+
     if (localStorage.getItem('token')) {
         let res = await postAPI.get('http://localhost:3000/me');
         userid = res.data.id;
         res = await postAPI.get(`http://localhost:3000/users/${userid}`);
         console.log(res.data.username);
         addUsername.textContent = `Welcome ${res.data.username}!`;
+
+        mypageBtn.addEventListener('click', async e => {
+            const res = await postAPI.get(`http://localhost:3000/users/${userid}/userinfo`);
+            // console.log(res.data);
+            userinfo = Object.assign(res.data[0]);
+            console.log(userinfo);
+
+            // JSON.stringify(res.data);
+        })
+    } else {
+        mypageBtn.addEventListener('click', e => {
+            loginPage();
+        })
     }
+
     logoEl.addEventListener('click', e => {
         indexPage();
     })
     titleEl.addEventListener('click', e => {
         indexPage();
     })
-    gotoHome.addEventListener('click', e => {
+    gotoHomebtn.addEventListener('click', e => {
         indexPage();
     })
     loginEl.addEventListener('click', e => {
@@ -72,8 +90,6 @@ async function indexPage() {
     signupEl.addEventListener('click', e => {
         signupPage();
     })
-
-
     render(productsFragment);
 }
 async function loginPage() {
@@ -137,4 +153,4 @@ if (token) {
 } else {
     loginPage();
 }
-indexPage();
+// indexPage();
