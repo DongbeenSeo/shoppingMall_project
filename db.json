@@ -1,60 +1,116 @@
 {
-    "users": [{
-            "id": 1,
-            "username": "admin"
-        },
+  "users": [
+    {
+      "id": 1,
+      "username": "admin"
+    },
+    {
+      "id": 2,
+      "username": "fds",
+      "hashedPassword": "$2a$10$LxKc8DNfZOgl3sViqY5JmeTvGJ6aY/OPdgTjt6gu0tUPBjdToJy1."
+    },
+    {
+      "username": "fds1",
+      "hashedPassword": "$2a$10$J4RT8TdYJEV58K2RqJMaYuLNTgDiH8Q14P7z2XQI2sKs9ZxooIztC",
+      "id": 3
+    },
+    {
+      "username": "fds456",
+      "hashedPassword": "$2a$10$TOdqMcNM0zQIGe5Rd3okReICaP61nfsCYa/AMXk.6kK3Rs5H8gWoO",
+      "id": 4
+    },
+    {
+      "username": "fds13414",
+      "hashedPassword": "$2a$10$grwnfoAqettOndYfn9i2BeAZfeBnQMa5ygD5X/i.F9bzFW3cKUkV.",
+      "id": 5
+    },
+    {
+      "username": "asdfasdfasdf",
+      "hashedPassword": "$2a$10$kHX3egKQ7mvkBSUPk3uk2O9PdcoeTf5jqV9wKrWN6.AZdI7qJnhW6",
+      "id": 6
+    }
+  ],
+  "userinfo": [
+    {
+      "id": 2,
+      "address": "....",
+      "phonenumber": "000-1111-1111",
+      "email": "asdf@gmail.com",
+      "userId": "2"
+    },
+    {
+      "address": "....2",
+      "phonenumber": "000-1111-2222",
+      "email": "asdf@gmail.com",
+      "userId": "3",
+      "id": 3
+    },
+    {
+      "address": "seoul",
+      "tel": "010-111-1111",
+      "email": "fds@gmail.com",
+      "userId": "4",
+      "id": 4
+    },
+    {
+      "address": "asdf",
+      "tel": "1230123",
+      "email": "hello@gmail.com",
+      "userId": "5",
+      "id": 5
+    },
+    {
+      "address": "asdf",
+      "tel": "asdfasdf",
+      "email": "hello@gmail.com",
+      "userId": "6",
+      "id": 6
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productname": "air max",
+      "price": 20000,
+      "quantity": 5,
+      "brandid": 1,
+      "categoryid": 1,
+      "sailedCount": 0,
+      "description": [
         {
-            "id": 2,
-            "username": "fds",
-            "hashedPassword": "$2a$10$LxKc8DNfZOgl3sViqY5JmeTvGJ6aY/OPdgTjt6gu0tUPBjdToJy1.",
-            "userinfoid": 2
+          "images": [],
+          "Explanation": "This is ...."
         }
-    ],
-    "userinfo": [{
-        "id": 2,
-        "address": "....",
-        "phonenumber": "000-1111-1111",
-        "email": "asdf@gmail.com",
-        "choiceproducts": [],
-        "orderproducts": [],
-        "emoney": 100000
-    }],
-    "products": [{
-        "id": 1,
-        "productname": "air max",
-        "price": 20000,
-        "quantity": 5,
-        "brandid": 1,
-        "categoryid": 1,
-        "sailedCount": 0,
-        "description": [{
-            "images": [],
-            "Explanation": "This is ...."
-        }]
-    }],
-    "comments": [{
-        "id": 1,
-        "userId": 1,
-        "productId": 1,
-        "createdate": "2018-01-01",
-        "body": "Good"
-    }],
-    "brand": [{
-            "id": 1,
-            "brandname": "nike"
-        },
-        {
-            "id": 2,
-            "brandname": "adidas"
-        }
-    ],
-    "categories": [{
-            "id": 1,
-            "categoryname": "running shoes"
-        },
-        {
-            "id": 2,
-            "categoryname": "shoes"
-        }
-    ]
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "productId": 1,
+      "createdate": "2018-01-01",
+      "body": "Good"
+    }
+  ],
+  "brand": [
+    {
+      "id": 1,
+      "brandname": "nike"
+    },
+    {
+      "id": 2,
+      "brandname": "adidas"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryname": "running shoes"
+    },
+    {
+      "id": 2,
+      "categoryname": "shoes"
+    }
+  ]
 }
