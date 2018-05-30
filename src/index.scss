@@ -7,7 +7,7 @@ $main-color: skyblue;
 }
 
 .state-toggle {
-    display: inline-block;
+    display: flex;
     &-logIn {
         // background: red;
         .root--authed & {
@@ -24,62 +24,59 @@ $main-color: skyblue;
     }
 }
 
-.hero-foot {
+.header__section-footer-nav {
     .container {
-        ul {
-            // background: red;
-            display: flex;
-            justify-content: space-around;
-        }
+        display: flex;
+        justify-content: space-around;
     }
 }
 
 .navbar-dropdown {
     color: gray;
-    .navbar-item:hover {
-        color: white;
-    }
 }
 
-.products {
-    padding-top: 20px;
-    width: 100%;
-    margin: 0 auto;
-    &__cards {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        &-box {
-            width: 250px;
-            height: 340px;
-            background-color: white;
-            margin: 0 20px 35px 15px;
-            border-radius: 5px;
-            box-shadow: 0 7px 9px rgba(0, 0, 0, .1);
-            img {
-                width: 345px;
-                height: 245px;
-            }
-            &-text {
-                margin-left: 15px;
-                h3:hover {
-                    color: #f88c00;
+.main {
+    margin: 0 50px;
+    .products {
+        padding-top: 20px;
+        width: 100%;
+        margin: 0 auto;
+        &__cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            &-box {
+                width: 250px;
+                height: 340px;
+                background-color: white;
+                margin: 0 20px 35px 15px;
+                border-radius: 5px;
+                box-shadow: 0 7px 9px rgba(0, 0, 0, .1);
+                img {
+                    width: 345px;
+                    height: 245px;
                 }
-                h3::after {
-                    content: "";
-                    display: block;
-                    width: 100px;
-                    border-bottom: 2px solid #c5c5c5;
-                    margin: 8px 0px;
-                }
-                p {
-                    color: #181818;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    /* 여러 줄 자르기 추가 스타일 */
-                    white-space: normal;
-                    text-align: left;
+                &-text {
+                    margin-left: 15px;
+                    h3:hover {
+                        color: #f88c00;
+                    }
+                    h3::after {
+                        content: "";
+                        display: block;
+                        width: 100px;
+                        border-bottom: 2px solid #c5c5c5;
+                        margin: 8px 0px;
+                    }
+                    p {
+                        color: #181818;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        /* 여러 줄 자르기 추가 스타일 */
+                        white-space: normal;
+                        text-align: left;
+                    }
                 }
             }
         }
@@ -88,4 +85,34 @@ $main-color: skyblue;
 
 .field {
     width: 300px;
+}
+
+.login,
+.signup {
+    &__header {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    &__main {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.modal-card {
+    width: 50%;
+    margin: 0 auto;
+    height: 50vh;
+    &-title,
+    &-body,
+    &-foot {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.modal-btn {
+    border-radius: 50%;
 }

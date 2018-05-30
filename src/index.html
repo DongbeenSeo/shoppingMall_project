@@ -20,7 +20,8 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="navbar-item">
-                                <img class="logo" src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+                                <!-- https://bulma.io/images/bulma-type-white.png -->
+                                <img class="logo" src="./logo.png" alt="Logo">
                             </a>
                             <span class="navbar-burger burger" data-target="navbarMenuHeroA">
                               <span></span>
@@ -31,10 +32,10 @@
                         <div id="navbarMenuHeroA" class="navbar-menu">
                             <div class="navbar-end">
                                 <!-- is-active -->
-                                <span class="state-toggle">
-                                    <p class="navbar-item print-username"></p>
+                                <div class="state-toggle navbar-item">
+                                    <a class="navbar-item username"></a>
                                     <a class="navbar-item home">
-                                        Home
+                                      Home
                                     </a>
                                     <a class="navbar-item state-toggle-logIn">
                                       sign in
@@ -42,20 +43,19 @@
                                     <a class="navbar-item state-toggle-logOut">
                                         sign out
                                     </a>
-                                
-                                <a class="navbar-item signUp">
-                                  sign up
-                                </a>
-                                <a class="navbar-item">
+                                    <a class="navbar-item signUp">
+                                      sign up
+                                    </a>
+                                    <a class="navbar-item">
                                   My Page
                                 </a>
-                                <a class="navbar-item">
+                                    <a class="navbar-item">
                                   basket
                                 </a>
-                                <a class="navbar-item">
+                                    <a class="navbar-item">
                                   Orders
                                 </a>
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,21 +64,21 @@
 
             <!-- Hero content: will be in the middle -->
             <div class="header__section-body hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title main-title">
-                        Title
+                <div class="header__section-body-title has-text-centered">
+                    <h1 class="header__section-body-title-main title">
+                        Shoes Shop
                     </h1>
-                    <h2 class="subtitle">
-                        Subtitle
+                    <h2 class="header__section-body-title-subtitle">
+                        All of shoes
                     </h2>
                 </div>
             </div>
 
             <!-- Hero footer: will stick at the bottom -->
             <div class="header__section-footer hero-foot">
-                <nav class="navbar is-boxed">
-                    <div class="container ">
-                        <ul class="navbar">
+                <nav class="header__section-footer-nav navbar is-boxed">
+                    <div class="container">
+                        <ul class="navbar is-right">
                             <li class="navbar-item has-dropdown is-hoverable">
                                 <a class="navbar-item">
                                   운동화
@@ -228,91 +228,140 @@
 
     <template id="login">
       <div class="login container">
-        <h1 class="header label">Sign in</h1>
+        <h1 class="login__header label">Sign In</h1>
         <main class="login__main">
-          <form class="login__form">
-            <div class="login__main-id field">
+          <form class="login__main-form">
+            <div class="login__main-form-id field">
               <label class="label">ID</label>
               <p class="control has-icons-left has-icons-right">
                 <input name="username" class="input" type="text" placeholder="ID">
                 <span class="icon is-small is-left">
                   <i class="fas fa-id-card"></i>
                 </span>
-                                <span class="icon is-small is-right">
+                  <!-- <span class="icon is-small is-right">
                   <i class="fas fa-check"></i>
-                </span>
-                                </p>
-                            </div>
+                </span> -->
+              </p>
+            </div>
 
-                            <div class="login__main-password field">
-                                <label class="label">Password</label>
-                                <p class="control has-icons-left">
-                                    <input name="password" class="input" type="password" placeholder="Password">
-                                    <span class="icon is-small is-left">
+            <div class="login__main-password field">
+              <label class="label">Password</label>
+              <p class="control has-icons-left">
+                <input name="password" class="input" type="password" placeholder="Password">
+                <span class="icon is-small is-left">
                   <i class="fas fa-lock"></i>
                 </span>
-                                </p>
-                            </div>
-                            <div class="login__main-btn field">
-                                <p class="control">
-                                    <button type="submit" class="login-button button is-success">
+              </p>
+            </div>
+            <div class="login__main-btn field">
+              <p class="control">
+                <button type="submit" class="login-button button is-success">
                   Login
                 </button>
-                                </p>
-                            </div>
-                            </form>
-                            </main>
-                        </div>
-                        </template>
+              </p>
+            </div>
+          </form>
+        </main>
+      </div>
+    </template>
 
     <template id="signup">
       <div class="signup container">
+          <h1 class="signup__header label">Sign Up</h1>
         <main class="signup__main">
-          <div class="signup__main-id field">
-            <label class="label">ID</label>
-            <p class="control has-icons-left">
-              <input name="id" class="input" type="text" placeholder="ID">
-              <span class="icon is-small is-left">
-                <i class="fas fa-id-card"></i>
-              </span>
-            </p>
-          </div>
-          <div class="signup__main-password field">
-            <label class="label">Password</label>
-            <p class="control has-icons-left">
-              <input name="password" class="input" type="password" placeholder="Password">
-              <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
-              </span>
-            </p>
-          </div>
-          <div class="signup__main-username field">
-            <label class="label">Username</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" name="username" type="text" placeholder="Text input">
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
-              <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
+          <form class="signup__main-form">
+            <div class="signup__main-id field">
+              <label class="label">ID</label>
+              <p class="control has-icons-left">
+                <input name="username" class="input" type="text" placeholder="ID" required>
+                <span class="icon is-small is-left">
+                  <i class="fas fa-id-card"></i>
+                </span>
+              </p>
             </div>
-            <p class="help is-success">This username is available</p>
-          </div>
-    
-          <div class="signup__main-btn-group field is-grouped">
-            <p class="control">
-              <a class="submit-btn button is-primary">
-                Submit
-              </a>
-            </p>
-            <p class="control">
-              <a class="cancel-btn button is-light">
-                Cancel
-              </a>
-            </p>
-          </div>
+            <div class="signup__main-password field">
+              <label class="label">Password</label>
+              <p class="control has-icons-left">
+                <input name="password" class="input" type="password" placeholder="Password" required minlength="4">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div class="signup__main-address field">
+                <label class="label">Address</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" name="address" type="text" placeholder="address">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-address-card"></i>
+                  </span>
+                  <!-- <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span> -->
+                </div>
+                <!-- <p class="help">This username is available</p> -->
+              </div>
+            <div class="signup__main-tel field">
+              <label class="label">Tel</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" name="tel" type="tel" placeholder="Tel input">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-mobile-alt"></i>
+                </span>
+                <!-- <span class="icon is-small is-right">
+                  <i class="fas fa-check"></i>
+                </span> -->
+              </div>
+              <!-- <p class="help">This username is available</p> -->
+            </div>
+      <!-- is-danger -->
+            <div class="signup__main-email field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" name="email" type="email" placeholder="Email input" value="hello@">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <!-- <span class="icon is-small is-right">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </span> -->
+                </div>
+                <!-- <p class="help">This email is invalid</p> -->
+            </div>
+            <!-- is-success -->
+            <div class="signup__main-btn-group field is-grouped">
+              <p class="control">
+                <button type="submit" class="sign-button button is-success">
+                    submit
+                </button>
+              </p>
+              <p class="control">
+                <a class="cancel-btn button is-light">
+                  Cancel
+                </a>
+              </p>
+            </div>
+          </form>
         </main>
+      </div>
+    </template>
+
+    <template id="modal">
+      <div class="modal is-active">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+              <header class="modal-card-head">
+                  <p class="modal-card-title">Congratulation !!</p>
+                  <button class="delete" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+                  <p>회원가입에 성공했어요 !</p>
+              </section>
+              <footer class="modal-card-foot">
+                  <button class="modal-card__confirm-btn button is-success">✔</button>
+
+              </footer>
+          </div>
       </div>
     </template>
 
