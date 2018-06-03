@@ -2,8 +2,8 @@ module.exports = {
     products: {
         write: 'ownerOnly'
     },
-    comments: {
+    carts: {
         read: 'ifAuthed',
-        write: 'ifAuthed'
+        write: 'ownerOnly'
     }
 };
