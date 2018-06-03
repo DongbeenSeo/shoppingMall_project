@@ -33,7 +33,8 @@
                             <div class="navbar-end">
                                 <!-- is-active -->
                                 <div class="state-toggle navbar-item">
-                                    <a class="navbar-item username"></a>
+                                    <p class="navbar-item username" aria-disabled="true">
+                                    </p>
                                     <a class="navbar-item home-btn">
                                       Home
                                     </a>
@@ -50,7 +51,7 @@
                                       My Page
                                     </a>
                                     <a class="navbar-item">
-                                      basket
+                                      Carts
                                     </a>
                                     <a class="navbar-item">
                                       Orders
@@ -164,66 +165,62 @@
     <template id="products">
         <main class="main">
           <div class="products">
-              <div class="products__cards">
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Basic Polo shirt - White</h3>
-                    <p>₩43,000</p>
-                  </div>
-                </a>
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Basic Logo T-shirt - White</h3>
-                    <p>₩68,000</p>
-                  </div>
-                </a>
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Basic Long sleeve T-shirt</h3>
-                    <p>₩55,000</p>
-                  </div>
-                </a>
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Basic Short pants - Navy</h3>
-                    <p>₩38,000</p>
-                  </div>
-                </a>
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Pile 6P Cap - Yellow</h3>
-                    <p>₩38,000</p>
-                  </div>
-                </a>
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Women's Short Pants - Yellow</h3>
-                    <p>₩48,000</p>
-                  </div>
-                </a>
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Women's Short Pants - Yellow</h3>
-                    <p>₩32,000</p>
-                  </div>
-                </a>
-                <a href="#" class="products__cards-box">
-                  <img src="https://source.unsplash.com/random/500x500" alt="">
-                  <div class="products__cards-box-text">
-                    <h3>Women's Short Pants - Yellow</h3>
-                    <p>₩18,000</p>
-                  </div>
-                </a>
-              </div>
+              <div class="products__cards"></div>
             </div>
         </main>
+    </template>
+
+    <template id="product-card">
+        <a href="#" class="products__cards-box">
+            <img class="productimage" src="./material_img/walker.PNG" alt="running shoe">
+            <div class="products__cards-box-text">
+              <h3 class="productname"></h3>
+              <p class="productprice"></p>
+            </div>
+          </a>
+    </template>
+
+    <template id="product__detail">
+      <div class="product__detail container">
+          <div class="box">
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-1by1">
+                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                      <h1 class="title is-3">Title 1</h1>
+                      <p>
+                          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+                          <br>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                        </p>
+                  </div>
+                  <nav class="level is-mobile">
+                      <div class="field is-grouped">
+                        <p class="cart-btn control">
+                          <a class="button">
+                            장바구니
+                          </a>
+                        </p>                          
+                        <p class="comments-btn control">
+                          <a class="button">
+                            댓글쓰기
+                          </a>
+                        </p>
+                        <p class="purchase-btn control">
+                          <a class="button is-danger">
+                            바로구매
+                          </a>
+                        </p>
+                      </div>
+                  </nav>
+                </div>
+              </article>
+            </div>
+      </div>
     </template>
 
     <template id="login">
@@ -253,11 +250,16 @@
                 </span>
               </p>
             </div>
-            <div class="login__main-btn field">
+            <div class="login__main-btn-group field is-grouped">
               <p class="control">
                 <button type="submit" class="login-button button is-success">
                   Login
                 </button>
+              </p>
+              <p class="control">
+                <a class="login-back-btn button is-light">
+                  Cancel
+                </a>
               </p>
             </div>
           </form>
@@ -267,7 +269,7 @@
 
     <template id="signup">
       <div class="signup container">
-          <h1 class="signup__header label">Sign Up</h1>
+        <h1 class="signup__header label">Sign Up</h1>
         <main class="signup__main">
           <form class="signup__main-form">
             <div class="signup__main-id field">
@@ -304,7 +306,7 @@
             <div class="signup__main-tel field">
               <label class="label">Tel</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" name="tel" type="tel" placeholder="Tel input">
+                <input class="input" name="tel" type="text" placeholder="Tel input">
                 <span class="icon is-small is-left">
                   <i class="fas fa-mobile-alt"></i>
                 </span>
@@ -359,12 +361,87 @@
               </section>
               <footer class="modal-card-foot">
                   <button class="modal-card__confirm-btn button is-success">✔</button>
-
               </footer>
           </div>
       </div>
     </template>
 
+    <template id="mypage">
+      <div class="mypage__container container">
+        <h1 class="mypage__header label">My Page</h1>
+        
+        <aside class="mypage__menu menu">
+          <p class="mypage__menu-label menu-label">
+            My Page
+          </p>
+          <ul class="mypage__menu-list menu-list">
+            <li><a class="mypage__menu-list-profile">My Profile</a></li>
+            <li><a class="mypage__menu-list-cart">Carts</a></li>
+            <li><a class="mypage__menu-list-orderlist">Order lists</a></li>
+          </ul>
+        </aside>
+  
+        <div class="mypage__main"></div>
+      </div>
+    </template>
+
+    <template id="profile">
+      <main class="profile box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png" alt="login-user-image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+                <strong><div class="username"></div></strong>
+                <small><div class="email"></div></small>
+                <div class="phonenumber"></div>
+                <div class="address"></div>
+            </div>
+          </div>
+        </article>
+      </main>
+    </template>
+
+    <template id="carts">
+      <main class="carts box">
+        <article class="media">
+          <main class="main">
+              <div class="products">
+                <div class="products__cards"></div>
+              </div>
+          </main>
+        </article>
+      </main>
+    </template>
+
+    <template id="orders">
+          <main class="orders box">
+            <article class="media">
+              <main class="main">
+                <div class="products">
+                  <div class="products__cards">
+                    <a href="#" class="products__cards-box">
+                      <img src="./material_img/oxford.PNG" alt="shoes">
+                      <div class="products__cards-box-text">
+                        <h3>PLAIN LOW</h3>
+                        <p>₩109,0000</p>
+                      </div>
+                    </a>
+                    <a href="#" class="products__cards-box">
+                      <img src="./material_img/converse.PNG" alt="converse shoe">
+                      <div class="products__cards-box-text">
+                        <h3>2950-COTU</h3>
+                        <p>₩55,000</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+            </article>
+          </main>
+        </template>
 
     <script src="./index.js"></script>
 </body>

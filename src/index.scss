@@ -6,6 +6,7 @@ $main-color: skyblue;
     padding: 0;
 }
 
+//header 
 .state-toggle {
     display: flex;
     &-logIn {
@@ -35,10 +36,14 @@ $main-color: skyblue;
     color: gray;
 }
 
+.root {
+    margin: 40px;
+}
+
+//indexPage에서 product
 .main {
     margin: 0 50px;
     .products {
-        padding-top: 20px;
         width: 100%;
         margin: 0 auto;
         &__cards {
@@ -87,8 +92,26 @@ $main-color: skyblue;
     width: 300px;
 }
 
+//상품 상세 페이지
+.product__detail {
+    width: 100%;
+    margin: 0 auto;
+    // margin-top: 20px;
+    // padding: 0 100px;
+    .box {
+        display: flex;
+        justify-content: space-between;
+        figure {
+            width: 400px;
+            height: 400px;
+        }
+    }
+}
+
+//로그인, 회원가입 페이지
 .login,
-.signup {
+.signup,
+{
     &__header {
         text-align: center;
         font-size: 30px;
@@ -97,6 +120,7 @@ $main-color: skyblue;
     &__main {
         display: flex;
         justify-content: center;
+        margin-bottom: 40px;
     }
 }
 
@@ -113,6 +137,68 @@ $main-color: skyblue;
     }
 }
 
-.modal-btn {
+.modal-card__confirm-btn {
     border-radius: 50%;
+}
+
+.mypage {
+    &__container {
+        margin-bottom: 50px;
+    }
+    &__header {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    &__menu {
+        width: 150px;
+        margin: 0 30px;
+        float: left;
+        &-list {
+            width: 120px;
+        }
+    }
+}
+
+.profile {
+    display: flex;
+    // justify-content: center;
+    margin: 45px 50px;
+    .media-content {
+        .content {
+            .username {
+                // float: left;
+                margin-right: 10px;
+            }
+            .email {
+                display: block;
+                // float: left;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+.carts,
+.orders {
+    display: flex;
+    // justify-content: center;
+    margin: 45px 30px;
+    .media-content {
+        .content {
+            .username {
+                // float: left;
+                margin-right: 10px;
+            }
+            .email {
+                display: block;
+                // float: left;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
+.menu-list a:hover {
+    width: 120px;
 }

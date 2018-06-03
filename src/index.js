@@ -21,9 +21,15 @@ const mypageBtn = document.querySelector('.mypage-btn');
 
 const templates = {
     products: document.querySelector('#products').content,
+    cards: document.querySelector('#product-card').content,
+    detail: document.querySelector('#product__detail').content,
     login: document.querySelector('#login').content,
     signup: document.querySelector('#signup').content,
-    modal: document.querySelector('#modal').content
+    modal: document.querySelector('#modal').content,
+    mypage: document.querySelector('#mypage').content,
+    profile: document.querySelector('#profile').content,
+    cart: document.querySelector('#carts').content,
+    order: document.querySelector('#orders').content
 }
 const token = localStorage.getItem('token');
 
@@ -48,22 +54,15 @@ async function indexPage() {
     const productsFragment = document.importNode(templates.products, true);
 
     let userid = 0;
-    let userinfo = {};
 
     if (localStorage.getItem('token')) {
-        let res = await postAPI.get('http://localhost:3000/me');
+        let res = await postAPI.get('/me');
         userid = res.data.id;
-        res = await postAPI.get(`http://localhost:3000/users/${userid}`);
-        console.log(res.data.username);
+        res = await postAPI.get(`/users/${userid}`);
         addUsername.textContent = `Welcome ${res.data.username}!`;
 
         mypageBtn.addEventListener('click', async e => {
-            const res = await postAPI.get(`http://localhost:3000/users/${userid}/userinfo`);
-            // console.log(res.data);
-            userinfo = Object.assign(res.data[0]);
-            console.log(userinfo);
-
-            // JSON.stringify(res.data);
+            mypage(userid, res.data.username);
         })
     } else {
         mypageBtn.addEventListener('click', e => {
@@ -86,12 +85,64 @@ async function indexPage() {
     logoutEl.addEventListener('click', e => {
         addUsername.textContent = '';
         logout();
+        indexPage();
     })
     signupEl.addEventListener('click', e => {
         signupPage();
-    })
+    });
+    // /nike.f3d483da.PNG
+    const productRes = await postAPI.get('/products');
+    const card = productsFragment.querySelector('.products__cards');
+    productRes.data.forEach(product => {
+        const cardFragment = document.importNode(templates.cards, true);
+        cardFragment.querySelector('.productimage').src = product.image;
+        cardFragment.querySelector('.productname').textContent = product.productname;
+        cardFragment.querySelector('.productprice').textContent = product.price;
+        cardFragment.querySelector('.products__cards-box').addEventListener('click', e => {
+            e.preventDefault();
+            productDetail(product.id);
+        })
+        card.appendChild(cardFragment);
+    });
     render(productsFragment);
 }
+
+async function productDetail(productId) {
+    const detailFragment = document.importNode(templates.detail, true);
+    const res = await postAPI.get(`/products/${productId}`);
+    let userid = 0;
+
+    detailFragment.querySelector('img').src = res.data.image;
+    detailFragment.querySelector('h1').textContent = res.data.productname;
+
+    detailFragment.querySelector('.cart-btn').addEventListener('click', async e => {
+        if (localStorage.getItem('token')) {
+            const modalFragment = document.importNode(templates.modal, true);
+            let res = await postAPI.get('/me');
+            userid = res.data.id;
+            res = await postAPI.get(`/users/${userid}`);
+            const payload = {
+                productId: productId
+            }
+            modalFragment.querySelector('.modal-card-title').textContent = '장바구니'
+            modalFragment.querySelector('.modal-card-body').textContent = '장바구니에 담으시겠습니까?';
+            modalFragment.querySelector('.modal-card__confirm-btn').addEventListener('click', async e => {
+                e.preventDefault();
+                await postAPI.post('/carts/', payload);
+                mypage(userid, res.data.username);
+            });
+            modalFragment.querySelector('.delete').addEventListener('click', e => {
+                e.preventDefault();
+                productDetail(productId);
+            })
+            render(modalFragment);
+        } else {
+            loginPage();
+        }
+    })
+    render(detailFragment);
+}
+
 async function loginPage() {
     const loginFragment = document.importNode(templates.login, true);
     const loginformEl = loginFragment.querySelector('.login__main-form');
@@ -102,10 +153,13 @@ async function loginPage() {
             password: e.target.elements.password.value
         };
         e.preventDefault();
-        let res = await postAPI.post('http://localhost:3000/users/login', payload);
+        let res = await postAPI.post('/users/login', payload);
         login(res.data.token);
-        res = await postAPI.get('http://localhost:3000/me');
+        res = await postAPI.get('/me');
         const userid = res.data.id
+        indexPage();
+    })
+    loginFragment.querySelector('.login-back-btn').addEventListener('click', e => {
         indexPage();
     })
     render(loginFragment);
@@ -128,13 +182,11 @@ async function signupPage() {
             tel: e.target.elements.tel.value,
             email: e.target.elements.email.value
         }
-        let res = await postAPI.post('http://localhost:3000/users/register', payload);
-        console.log(res.data);
+        let res = await postAPI.post('/users/register', payload);
         login(res.data.token);
-        res = await postAPI.get('http://localhost:3000/me');
-        console.log(res.data.id);
+        res = await postAPI.get('/me');
         const userid = res.data.id
-        res = await postAPI.post(`http://localhost:3000/users/${userid}/userinfo`, userinfo);
+        res = await postAPI.post(`/users/${userid}/userinfos`, userinfo);
         render(modalFragment);
         confirmButton.addEventListener('click', e => {
             indexPage();
@@ -147,10 +199,83 @@ async function signupPage() {
     render(signupFrament);
 }
 
+function mypage(userid, username) {
+    const mypageFragment = document.importNode(templates.mypage, true);
+    const profileFragment = document.importNode(templates.profile, true);
+    const mypageMainEl = mypageFragment.querySelector('.mypage__main');
+    const profileBtn = mypageFragment.querySelector('.mypage__menu-list-profile');
+    const cartBtn = mypageFragment.querySelector('.mypage__menu-list-cart');
+    const orderBtn = mypageFragment.querySelector('.mypage__menu-list-orderlist');
+
+    profilePage(mypageMainEl, userid, username);
+
+    profileBtn.addEventListener('click', e => {
+        profileBtn.classList.add('is-active');
+        cartBtn.classList.remove('is-active');
+        orderBtn.classList.remove('is-active');
+        profilePage(mypageMainEl, userid, username);
+    })
+
+    cartBtn.addEventListener('click', e => {
+        profileBtn.classList.remove('is-active');
+        cartBtn.classList.add('is-active');
+        orderBtn.classList.remove('is-active');
+        cartPage(mypageMainEl, userid);
+    })
+    orderBtn.addEventListener('click', e => {
+        profileBtn.classList.remove('is-active');
+        cartBtn.classList.remove('is-active');
+        orderBtn.classList.add('is-active');
+        orderPage(mypageMainEl, userid);
+    })
+
+    render(mypageFragment);
+}
+
+async function profilePage(mainEl, userid, username) {
+    const profileFragment = document.importNode(templates.profile, true);
+    const res = await postAPI.get(`/users/${userid}/userinfos`);
+
+    const profileLists = profileFragment.querySelectorAll('.content');
+
+    profileLists.forEach(list => {
+        list.querySelector('.username').textContent = `${username}`;
+        list.querySelector('.email').textContent = `${res.data[0].email}`;
+        list.querySelector('.phonenumber').textContent = res.data[0].tel
+        list.querySelector('.address').textContent = res.data[0].address
+    })
+
+    mainEl.textContent = '';
+    mainEl.appendChild(profileFragment);
+}
+
+async function cartPage(mainEl, userid) {
+    const cartFragment = document.importNode(templates.cart, true);
+    const card = cartFragment.querySelector('.products__cards');
+    const res = await postAPI.get(`/users/${userid}?_embed=carts`);
+    let cartRes = [];
+    res.data.carts.forEach(async cart => {
+        cartRes = await postAPI.get(`/products/${cart.productId}`);
+        const cardFragment = document.importNode(templates.cards, true);
+        cardFragment.querySelector('.productimage').src = cartRes.data.image;
+        cardFragment.querySelector('.productname').textContent = cartRes.data.productname;
+        cardFragment.querySelector('.productprice').textContent = cartRes.data.price;
+        card.appendChild(cardFragment);
+    });
+
+    mainEl.textContent = '';
+    mainEl.appendChild(cartFragment);
+}
+
+async function orderPage(mainEl, userid) {
+    const orderFragment = document.importNode(templates.order, true);
+    mainEl.textContent = '';
+    mainEl.appendChild(orderFragment);
+}
 if (token) {
     login(token);
     indexPage();
 } else {
     loginPage();
 }
-// indexPage();
+indexPage();
